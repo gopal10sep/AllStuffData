@@ -1,0 +1,2 @@
+bls_key = '2c0a3155a1864ac88cc2282db3087b41'
+fred_key = 'f421827167960b6b9b1c49014dcd2ed4'
