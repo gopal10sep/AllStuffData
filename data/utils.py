@@ -199,7 +199,7 @@ def m3rate(series):
 				  
 def write_txt(filename, filetext):
 	''' Write label to txt file '''
-	with open(filename, 'w') as text_file:
+	with open(filename, 'w+') as text_file:
 		text_file.write(filetext)
 		
 	  
