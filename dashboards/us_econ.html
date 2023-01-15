@@ -88,43 +88,28 @@
         </div>
 
         <div class="row">
-          
-          <div class="col-8">
+          <div class="col-12">
             <center><iframe src="gdp_nowcasts.html" seamless width="800" height="550" frameBorder="0"></iframe></center>
-          </div>
-          <div class="col-4">
             Latest updates:
-            <!-- <div id="gdpnow"></div> -->
-            <br>
-            <br>
-              <embed src="../data/text_dir/gdpnow.txt">
-              <embed src="../data/text_dir/st_louis_gdp_nowcast.txt">
-              <embed src="../data/text_dir/real_gdp.txt">
-            
+            <div id="gdpnow"></div><br>
+            <div id="st_louis_gdp_nowcast"></div><br>
+            <div id="real_gdp"></div><br>
           </div>
         </div>
         <div class="row">
-          
-          <div class="col-8">
+          <div class="col-12">
             <center><iframe src="cpi_yearly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
+            <div id="cpi_yearly"></div>
           </div>
-
-          <div class="col-4">
-          <div id="text-container"></div>
-        </div>
-
         </div>
         <div class="row">
           <div class="col-12">
             <center><iframe src="cpi_monthly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
+            <div id="cpi_monthly"></div>
           </div>
         </div>
 
         <div class="row">
-
-
-
-
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch mt-4 mt-lg-0">
             <div class="icon-box">
               <div class="icon"><i class="bx bxl-dribbble"></i></div>
@@ -300,14 +285,52 @@
 <!-- Template Main JS File -->
 <script src="../assets/js/main.js"></script>
 <script>
-  var xhr = new XMLHttpRequest();
-  xhr.open('GET', '../data/text_dir/real_gdp.txt', true);
-  xhr.onreadystatechange = function() {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-          document.getElementById('text-container').innerHTML = xhr.responseText;
+  var real_gdp = new XMLHttpRequest();
+  real_gdp.open('GET', '../data/text_dir/real_gdp.txt', true);
+  real_gdp.onreadystatechange = function() {
+      if (real_gdp.readyState === 4 && real_gdp.status === 200) {
+          document.getElementById('real_gdp').innerHTML = real_gdp.responseText;
       }
   };
-  xhr.send();
+  real_gdp.send();
+
+  var st_louis_gdp_nowcast = new XMLHttpRequest();
+  st_louis_gdp_nowcast.open('GET', '../data/text_dir/st_louis_gdp_nowcast.txt', true);
+  st_louis_gdp_nowcast.onreadystatechange = function() {
+      if (st_louis_gdp_nowcast.readyState === 4 && st_louis_gdp_nowcast.status === 200) {
+          document.getElementById('st_louis_gdp_nowcast').innerHTML = st_louis_gdp_nowcast.responseText;
+      }
+  };
+  st_louis_gdp_nowcast.send();
+
+  var gdpnow = new XMLHttpRequest();
+  gdpnow.open('GET', '../data/text_dir/gdpnow.txt', true);
+  gdpnow.onreadystatechange = function() {
+      if (gdpnow.readyState === 4 && gdpnow.status === 200) {
+          document.getElementById('gdpnow').innerHTML = gdpnow.responseText;
+      }
+  };
+  gdpnow.send();
+
+  var cpi_yearly = new XMLHttpRequest();
+  cpi_yearly.open('GET', '../data/text_dir/cpi_main.txt', true);
+  cpi_yearly.onreadystatechange = function() {
+      if (xhcpi_yearlyr.readyState === 4 && cpi_yearly.status === 200) {
+          document.getElementById('cpi_yearly').innerHTML = cpi_yearly.responseText;
+      }
+  };
+  cpi_yearly.send();
+
+  var cpi_monthly = new XMLHttpRequest();
+  cpi_monthly.open('GET', '../data/text_dir/cpi_monthly.txt', true);
+  cpi_monthly.onreadystatechange = function() {
+      if (cpi_monthly.readyState === 4 && cpi_monthly.status === 200) {
+          document.getElementById('cpi_monthly').innerHTML = cpi_monthly.responseText;
+      }
+  };
+  cpi_monthly.send();
+
+
 </script>
 
 </body>
