@@ -103,6 +103,22 @@
             
           </div>
         </div>
+        <div class="row">
+          
+          <div class="col-8">
+            <center><iframe src="cpi_yearly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
+          </div>
+
+          <div class="col-4">
+          <div id="text-container"></div>
+        </div>
+
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <center><iframe src="cpi_monthly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
+          </div>
+        </div>
 
         <div class="row">
 
@@ -282,8 +298,17 @@
 <script src="../assets/vendor/owl.carousel/owl.carousel.min.js"></script>
 
 <!-- Template Main JS File -->
-<script src="../assets/js/main.js"></script>
-
+<script src="../data/js/main.js"></script>
+<script>
+  var xhr = new XMLHttpRequest();
+  xhr.open('GET', '../assets/text_dir/real_gdp.txt', true);
+  xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+          document.getElementById('text-container').innerHTML = xhr.responseText;
+      }
+  };
+  xhr.send();
+</script>
 
 </body>
 
