@@ -83,31 +83,39 @@
         <div class="section-title">
          </br></br></br>
           <h2>US Economic Tracker</h2>
+          <p>Updated: 15th January, 2023</p>
           <!-- <p>You can explore some of the high frequency infographics/graphical blog, 
             newsletters and commentaries that we will be doing over time. Stay tuned!</p> -->
         </div>
 
         <div class="row">
-          <div class="col-12">
+          <div class="col-8">
             <center><iframe src="gdp_nowcasts.html" seamless width="800" height="550" frameBorder="0"></iframe></center>
-            Latest updates:
-            <div id="gdpnow"></div><br>
-            <div id="st_louis_gdp_nowcast"></div><br>
-            <div id="real_gdp"></div><br>
+          </div>
+          <div class="col-4">
+            <p style="font-family: Georgia">
+              <br><br><br><br><br>
+              Latest updates:
+              <ul>
+                <li><div id="gdpnow"></div></li>
+                <li><div id="st_louis_gdp_nowcast"></div></li>
+                <li><div id="real_gdp"></div></li>
+              </ul>
+            </p>
           </div>
         </div>
-        <div class="row">
+
           <div class="col-12">
             <center><iframe src="cpi_yearly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
             <div id="cpi_yearly"></div>
           </div>
-        </div>
-        <div class="row">
+
+
           <div class="col-12">
             <center><iframe src="cpi_monthly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
             <div id="cpi_monthly"></div>
           </div>
-        </div>
+
 
         <div class="row">
           <div class="col-lg-4 col-md-4 d-flex align-items-stretch mt-4 mt-lg-0">
@@ -315,7 +323,7 @@
   var cpi_yearly = new XMLHttpRequest();
   cpi_yearly.open('GET', '../data/text_dir/cpi_main.txt', true);
   cpi_yearly.onreadystatechange = function() {
-      if (xhcpi_yearlyr.readyState === 4 && cpi_yearly.status === 200) {
+      if (cpi_yearly.readyState === 4 && cpi_yearly.status === 200) {
           document.getElementById('cpi_yearly').innerHTML = cpi_yearly.responseText;
       }
   };
