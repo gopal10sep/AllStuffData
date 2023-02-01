@@ -83,7 +83,7 @@
         <div class="section-title">
          </br></br></br>
           <h2>US Economic Tracker</h2>
-          <p>Updated: 15th January, 2023</p>
+          <p>Updated: <div id="update_date"></div></p>
           <!-- <p>You can explore some of the high frequency infographics/graphical blog, 
             newsletters and commentaries that we will be doing over time. Stay tuned!</p> -->
         </div>
@@ -103,46 +103,7 @@
               </ul>
             </p>
           </div>
-        </div>
 
-          <div class="col-12">
-            <center><iframe src="cpi_yearly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
-            <div id="cpi_yearly"></div>
-          </div>
-
-
-          <div class="col-12">
-            <center><iframe src="cpi_monthly_change.html" seamless width="800" height="400" frameBorder="0"></iframe></center>
-            <div id="cpi_monthly"></div>
-          </div>
-
-
-        <div class="row">
-          <div class="col-lg-4 col-md-4 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="../dashboards.html">Dashboards</a></h4>
-              <p>Check out live data dashboards tracking interesting trends over time.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-4 d-flex align-items-stretch mt-4 mt-lg-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="https://allstuffdata.substack.com/welcome">WeeklyWrapUp</a></h4>
-              <p>Check out an interesting newsletter published weekly covering altdata, econ, crypto; also sprinkled with some memes.</p>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-4 d-flex align-items-stretch mt-4 mt-md-0">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4>Learnings</h4>
-              <p>Learn intricacies of exploratory data analysis and various tech stacks. (Coming soon!)</p>
-            </div>
-          </div>
-
-        </div>
 
       </div>
     </section><!-- End What We Do Section -->
@@ -298,6 +259,7 @@
   real_gdp.onreadystatechange = function() {
       if (real_gdp.readyState === 4 && real_gdp.status === 200) {
           document.getElementById('real_gdp').innerHTML = real_gdp.responseText;
+          document.getElementById('real_gdp').style.fontFamily = "Georgia";
       }
   };
   real_gdp.send();
@@ -307,6 +269,7 @@
   st_louis_gdp_nowcast.onreadystatechange = function() {
       if (st_louis_gdp_nowcast.readyState === 4 && st_louis_gdp_nowcast.status === 200) {
           document.getElementById('st_louis_gdp_nowcast').innerHTML = st_louis_gdp_nowcast.responseText;
+          document.getElementById('st_louis_gdp_nowcast').style.fontFamily = "Georgia";
       }
   };
   st_louis_gdp_nowcast.send();
@@ -316,28 +279,20 @@
   gdpnow.onreadystatechange = function() {
       if (gdpnow.readyState === 4 && gdpnow.status === 200) {
           document.getElementById('gdpnow').innerHTML = gdpnow.responseText;
+          document.getElementById('gdpnow').style.fontFamily = "Georgia";
       }
   };
   gdpnow.send();
 
-  var cpi_yearly = new XMLHttpRequest();
-  cpi_yearly.open('GET', '../data/text_dir/cpi_main.txt', true);
-  cpi_yearly.onreadystatechange = function() {
-      if (cpi_yearly.readyState === 4 && cpi_yearly.status === 200) {
-          document.getElementById('cpi_yearly').innerHTML = cpi_yearly.responseText;
+  var update_date = new XMLHttpRequest();
+  update_date.open('GET', '../data/text_dir/update_date.txt', true);
+  update_date.onreadystatechange = function() {
+      if (update_date.readyState === 4 && update_date.status === 200) {
+          document.getElementById('update_date').innerHTML = cpi_moupdate_datenthly.responseText;
+          document.getElementById('update_date').style.fontFamily = "Georgia";
       }
   };
-  cpi_yearly.send();
-
-  var cpi_monthly = new XMLHttpRequest();
-  cpi_monthly.open('GET', '../data/text_dir/cpi_monthly.txt', true);
-  cpi_monthly.onreadystatechange = function() {
-      if (cpi_monthly.readyState === 4 && cpi_monthly.status === 200) {
-          document.getElementById('cpi_monthly').innerHTML = cpi_monthly.responseText;
-      }
-  };
-  cpi_monthly.send();
-
+  update_date.send();
 
 </script>
 
