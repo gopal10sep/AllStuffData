@@ -30,7 +30,7 @@ $("#terminal").terminal(async function (command, terminal) {
     }
 },
     {
-        greetings: "Hey, I am your AI-assistant, Gopu!",
+        greetings: "Hey, I am your AI-assistant, Gopu! I grant you max 3 queries.",
         name: 'gpt3_demo',
         prompt: '> '
     });
