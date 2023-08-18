@@ -9,9 +9,19 @@
         rel="stylesheet" 
         href="https://cdn.jsdelivr.net/npm/jquery.terminal/css/jquery.terminal.min.css"
     />
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+    <script src="assets/js/papaparse.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
 </head>
 <body style="background-color: black">
   <div id="terminal"></div>
-  <script src="assets/chat_gpt.js"></script>
+  <div id="container" style="width: 100%; height: 400px;"></div>
+  <input type="text" id="daterange">
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <script src="assets/chat_gpt.js" type="module"></script>
 </body>
 </html>

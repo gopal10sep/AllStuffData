@@ -23,10 +23,10 @@ $("#terminal").terminal(async function (command, terminal) {
             const json = await response.json();
             terminal.echo(json.choices[0].text.trim());
         } else {
-            terminal.echo("My health is not okay right now, can you check with me later!");
+            terminal.echo("I am feeling a bit under the weather; lets do this later?");
         }
     } catch (err) {
-        terminal.echo("My health is not okay right now, can you check with me later!");
+        terminal.echo("I am feeling a bit under the weather; lets do this later?");
     }
 },
     {
@@ -34,3 +34,8 @@ $("#terminal").terminal(async function (command, terminal) {
         name: 'gpt3_demo',
         prompt: '> '
     });
+
+
+
+
+
